@@ -93,81 +93,87 @@
 
 ## 二、标准目录和备注
 
-node-script-kill-min/ 项目根目录
-├── script_kill.sql 数据库结构与演示种子数据
-├── 运行手册.md 本地环境与三端启动说明（学生用）
-├── SQL自动导入.md 后端启动时数据库检测与导入说明
-├── README.md 本说明文档
-├── 演示材料/ 答辩或课堂演示素材
-│ └── 演示视频.mp4 功能演示录像
-├── express/ 后端 API 服务
-│ ├── app.js 应用入口与中间件挂载
-│ ├── bin/ 进程启动脚本（监听端口）
-│ ├── config/ 数据库、安全、微信等配置与库初始化
-│ ├── controllers/ 业务控制器
-│ │ ├── biz/ 管理端门店运营接口实现
-│ │ ├── sys/ 系统用户、角色、菜单接口实现
-│ │ └── web/ 小程序端首页、登录、预约等接口实现
-│ ├── routes/ 路由注册（与 controllers 对应）
-│ │ ├── biz/ 管理端运营路由
-│ │ ├── sys/ 系统管理路由
-│ │ └── web/ 小程序端路由
-│ ├── services/ 预留业务服务层目录
-│ ├── util/ 鉴权、微信、场次辅助等工具
-│ ├── scripts/ 仅初始化数据库等脚本入口
-│ ├── public/ 静态资源对外访问根
-│ │ └── images/ 头像、种子图、上传文件等图片
-│ └── package.json 后端依赖与启动脚本声明
-├── admin-vue3/ 门店管理后台前端
-│ ├── index.html 后台页面壳
-│ ├── vite.config.js 开发服务器与接口代理配置
-│ ├── public/ 后台静态公共资源
-│ ├── package.json 后台依赖与脚本声明
-│ └── src/ 后台源码
-│ ├── main.js 前端应用启动
-│ ├── App.vue 根组件
-│ ├── api/ 对接后端的接口封装
-│ ├── assets/ 样式与静态素材
-│ ├── components/ 富文本、上传等通用组件
-│ ├── hooks/ 复用逻辑钩子
-│ ├── layouts/ 登录后主布局（侧栏与内容区）
-│ ├── router/ 路由与动态菜单路由
-│ ├── stores/ 用户与角色等状态
-│ ├── utils/ 常量、格式化、加解密等工具
-│ └── views/ 页面视图
-│ ├── Login.vue 后台登录页
-│ ├── Dashboard.vue 工作台与运营图表
-│ ├── 404.vue 未匹配路由页
-│ ├── biz/ 门店运营各业务页
-│ └── system/ 用户、角色、菜单、个人中心
-└── min/ 微信小程序玩家端
-├── app.js 小程序逻辑入口
-├── app.json 页面注册与底部导航配置
-├── app.wxss 全局样式
-├── project.config.json 微信开发者工具项目配置
-├── utils/ 请求封装与通用工具
-├── components/ 日历、富文本解析等组件
-├── images/ 默认头像、Tab 图标与种子图
-│ ├── seed/ 本地演示用剧本/轮播等图片
-│ └── tabbar/ 底部导航图标
-└── pages/ 业务页面目录
-├── index/ 首页品牌与入口
-├── scriptList/ 剧本列表
-├── detail/ 剧本详情与近期场次
-├── sessionList/ 组局场次列表
-├── comfirm/ 确认报名与支付方式
-├── createSession/ 个人开局拦截提示页
-├── orderList/ 我的场次列表
-├── orderDetail/ 报名详情、取消与评价
-├── my/ 个人中心菜单
-├── auth/ 微信登录
-├── userInfo/ 个人资料与头像
-├── wallet/ 钱包余额与流水
-├── walletAdd/ 虚拟充值
-├── newsList/ 公告列表
-├── newsDetail/ 公告详情
-├── reviewList/ 我的评价列表
-└── question/ 意见反馈
+```text
+node-script-kill-min/                            # 项目根目录（管理后台 + 后端 + 小程序）
+│
+├── script_kill.sql                              # 数据库结构与演示种子数据
+├── 运行手册.md                                  # 本地环境与三端启动说明（学生用）
+├── SQL自动导入.md                               # 后端启动时数据库检测与导入说明
+├── README.md                                    # 本说明文档
+├── 演示材料/                                    # 答辩或课堂演示素材
+│   └── 演示视频.mp4                             # 功能演示录像
+│
+├── express/                                     # 后端 API 服务
+│   ├── app.js                                   # 应用入口与中间件挂载
+│   ├── bin/                                     # 进程启动脚本（监听端口）
+│   ├── config/                                  # 数据库、安全、微信等配置与库初始化
+│   ├── controllers/                             # 业务控制器
+│   │   ├── biz/                                 # 管理端门店运营接口实现
+│   │   ├── sys/                                 # 系统用户、角色、菜单接口实现
+│   │   └── web/                                 # 小程序端首页、登录、预约等接口实现
+│   ├── routes/                                  # 路由注册（与 controllers 对应）
+│   │   ├── biz/                                 # 管理端运营路由
+│   │   ├── sys/                                 # 系统管理路由
+│   │   └── web/                                 # 小程序端路由
+│   ├── services/                                # 预留业务服务层目录
+│   ├── util/                                    # 鉴权、微信、场次辅助等工具
+│   ├── scripts/                                 # 仅初始化数据库等脚本入口
+│   ├── public/                                  # 静态资源对外访问根
+│   │   └── images/                              # 头像、种子图、上传文件等图片
+│   └── package.json                             # 后端依赖与启动脚本声明
+│
+├── admin-vue3/                                  # 门店管理后台前端
+│   ├── index.html                               # 后台页面壳
+│   ├── vite.config.js                           # 开发服务器与接口代理配置
+│   ├── public/                                  # 后台静态公共资源
+│   ├── package.json                             # 后台依赖与脚本声明
+│   └── src/                                     # 后台源码
+│       ├── main.js                              # 前端应用启动
+│       ├── App.vue                              # 根组件
+│       ├── api/                                 # 对接后端的接口封装
+│       ├── assets/                              # 样式与静态素材
+│       ├── components/                          # 富文本、上传等通用组件
+│       ├── hooks/                               # 复用逻辑钩子
+│       ├── layouts/                             # 登录后主布局（侧栏与内容区）
+│       ├── router/                              # 路由与动态菜单路由
+│       ├── stores/                              # 用户与角色等状态
+│       ├── utils/                               # 常量、格式化、加解密等工具
+│       └── views/                               # 页面视图
+│           ├── Login.vue                        # 后台登录页
+│           ├── Dashboard.vue                    # 工作台与运营图表
+│           ├── 404.vue                          # 未匹配路由页
+│           ├── biz/                             # 门店运营各业务页
+│           └── system/                          # 用户、角色、菜单、个人中心
+│
+└── min/                                         # 微信小程序玩家端
+    ├── app.js                                   # 小程序逻辑入口
+    ├── app.json                                 # 页面注册与底部导航配置
+    ├── app.wxss                                 # 全局样式
+    ├── project.config.json                      # 微信开发者工具项目配置
+    ├── utils/                                   # 请求封装与通用工具
+    ├── components/                              # 日历、富文本解析等组件
+    ├── images/                                  # 默认头像、Tab 图标与种子图
+    │   ├── seed/                                # 本地演示用剧本/轮播等图片
+    │   └── tabbar/                              # 底部导航图标
+    └── pages/                                   # 业务页面目录
+        ├── index/                               # 首页品牌与入口
+        ├── scriptList/                          # 剧本列表
+        ├── detail/                              # 剧本详情与近期场次
+        ├── sessionList/                         # 组局场次列表
+        ├── comfirm/                             # 确认报名与支付方式
+        ├── createSession/                       # 个人开局拦截提示页
+        ├── orderList/                           # 我的场次列表
+        ├── orderDetail/                         # 报名详情、取消与评价
+        ├── my/                                  # 个人中心菜单
+        ├── auth/                                # 微信登录
+        ├── userInfo/                            # 个人资料与头像
+        ├── wallet/                              # 钱包余额与流水
+        ├── walletAdd/                           # 虚拟充值
+        ├── newsList/                            # 公告列表
+        ├── newsDetail/                          # 公告详情
+        ├── reviewList/                          # 我的评价列表
+        └── question/                            # 意见反馈
+```
 ---
 
 ## 获取完整源码
